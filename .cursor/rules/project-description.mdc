@@ -1,0 +1,21 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Project description
+
+We want to create an Android App to login to a server using DHIS2 Android SDK (https://github.com/dhis2/dhis2-android-sdk), if the login is succesfull, reach to a home page saying hello username, if it has a login error, show the error in a toast.
+
+For login with the SDK please follow this snippet:
+
+d2.userModule().logIn(username, password, serverUrl)
+
+more info: https://developers.dhis2.org/docs/mobile/android-sdk/workflow
+
+# Tech stack
+- For the ui use the compose multiplatform DHIS2 design system (https://github.com/dhis2/dhis2-mobile-ui), if there is a component that you need and is not in the library, please use compose multiplatform, and if not, use material 3. Please don't use xml for the UI.
+
+- The architecture should be simple, using ViewModel to interact with the UI. The ViewModels will know a repository interface which will have an impletation to use the DHIS2 Android SDK and abstract the framework to the domain. For architectura best practices reference: https://developer.android.com/topic/architecture
+
+- For dependency injection use Koin.
